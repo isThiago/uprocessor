@@ -1,0 +1,16 @@
+v 4
+file . "main_tb.vhd" "d8797243d2c7fe574459e4d1f4e6663fa00985d4" "20240503175542.389":
+  entity main_tb at 1( 0) + 0 on 19;
+  architecture a_main_tb of main_tb at 8( 101) + 0 on 20;
+file . "alu.vhd" "de3e2df5fef6f163633d1dd05417eba6baa3467e" "20240503175542.287":
+  entity alu at 1( 0) + 0 on 15;
+  architecture a_alu of alu at 14( 261) + 0 on 16;
+file . "reg16bits.vhd" "d1fa3a9e2fbeef7d2f7eae6c74a31efc3309d311" "20240503175542.189":
+  entity reg16bits at 1( 0) + 0 on 11;
+  architecture a_reg16bits of reg16bits at 13( 246) + 0 on 12;
+file . "bank8reg16bits.vhd" "f9de6b57782e7ca7afca55d7ae7035a0e81fd543" "20240503175542.236":
+  entity bank8reg16bits at 1( 0) + 0 on 13;
+  architecture a_bank8reg16bits of bank8reg16bits at 14( 326) + 0 on 14;
+file . "main.vhd" "bb1d4b9826ebbc15b2ca1617b5ae57676f129be7" "20240503175542.334":
+  entity main at 1( 0) + 0 on 17;
+  architecture a_main of main at 16( 383) + 0 on 18;

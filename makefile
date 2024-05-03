@@ -1,10 +1,16 @@
 all:
+	ghdl -a reg16bits.vhd
+	ghdl -e reg16bits
+	ghdl -a bank8reg16bits.vhd
+	ghdl -e bank8reg16bits
 	ghdl -a alu.vhd
 	ghdl -e alu
-	ghdl -a alu_tb.vhd
-	ghdl -e alu_tb
-	ghdl -r alu_tb --wave=alu_tb.ghw
-	gtkwave alu_tb.ghw
+	ghdl -a main.vhd
+	ghdl -e main
+	ghdl -a main_tb.vhd
+	ghdl -e main_tb
+	ghdl -r main_tb --wave=main_tb.ghw
+	gtkwave main_tb.ghw
 
 clear:
-	rm alu_tb.ghw work-obj93.cf
+	rm main_tb.ghw work-obj93.cf

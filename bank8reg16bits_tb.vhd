@@ -21,9 +21,9 @@ architecture a_bank8reg16bits_tb of bank8reg16bits_tb is
     signal rst, clk, wr_en: std_logic;
 begin
     uut: bank8reg16bits port map(
-        addr_r_a -> addr_r_a, addr_r_b -> addr_r_b, addr_w -> addr_w,
-        data_in -> data_in, data_out_a -> data_out_a, data_out_b -> data_out_b,
-        rst -> rst, clk -> clk, wr_en -> wr_en
+        addr_r_a => addr_r_a, addr_r_b => addr_r_b, addr_w => addr_w,
+        data_in => data_in, data_out_a => data_out_a, data_out_b => data_out_b,
+        rst => rst, clk => clk, wr_en => wr_en
     );
     global_rst: process
     begin
@@ -46,6 +46,32 @@ begin
 
     process
     begin
+        wait for 2 * period_clk;
+        addr_r_a <= "000";
+        addr_r_b <= "000";
+        addr_w <= "000";
+        data_in <= "1111000011110000";
+        wr_en <= '1';
+        wait for period_clk;
+        addr_r_a <= "000";
+        addr_r_b <= "001";
+        addr_w <= "001";
+        data_in <= "1111000011110000";
+        wr_en <= '0';
+        wait for period_clk;
+        addr_r_a <= "001";
+        addr_r_b <= "000";
+        addr_w <= "001";
+        data_in <= "1111000011110000";
+        wr_en <= '1';
+        wait for period_clk;
+        addr_r_a <= "101";
+        addr_r_b <= "001";
+        addr_w <= "101";
+        data_in <= "0000111100001111";
+        wr_en <= '1';
+        wait for period_clk;
         finished <= '1';
+        wait;
     end process;
 end architecture;
