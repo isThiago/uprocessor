@@ -2,21 +2,22 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity statemachine1bit_tb is
+entity statemachine2bits_tb is
 end entity;
 
-architecture a_statemachine1bit_tb of statemachine1bit_tb is
-    component statemachine1bit is
+architecture a_statemachine2bits_tb of statemachine2bits_tb is
+    component statemachine2bits is
         port(
             rst, clk: in std_logic;
-            state: out std_logic
+            state: out unsigned(1 downto 0)
         );
     end component;
     constant period_clk: time := 100 ns;
     signal finished: std_logic := '0';
-    signal rst, clk, state: std_logic;
+    signal rst, clk: std_logic;
+    signal state: unsigned(1 downto 0);
 begin
-    uut: statemachine1bit port map(
+    uut: statemachine2bits port map(
         rst => rst, clk => clk, state => state
     );
 
@@ -39,10 +40,15 @@ begin
         wait;
     end process;
     
+    global_sim_time: process
+    begin
+        wait for 10 us;
+        finished <= '1';
+        wait;
+    end process;
+
     process
     begin
-        wait for 10 *  period_clk;
-        finished <= '1';
         wait;
     end process;
 end architecture;

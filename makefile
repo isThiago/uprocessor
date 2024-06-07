@@ -1,10 +1,4 @@
 all:
-	ghdl -a reg16bits.vhd
-	ghdl -e reg16bits
-	ghdl -a bank8reg16bits.vhd
-	ghdl -e bank8reg16bits
-	ghdl -a alu.vhd
-	ghdl -e alu
 	ghdl -a main.vhd
 	ghdl -e main
 	ghdl -a main_tb.vhd
