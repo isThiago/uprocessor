@@ -7,7 +7,7 @@ entity bank8reg16bits is
         rst, clk, wr_en: in std_logic;
         addr_r_a, addr_r_b, addr_w: in unsigned(2 downto 0);
         data_in: in unsigned(15 downto 0);
-        data_out_a, data_out_b: out unsigned(15 downto 0)
+        data_out_a, data_out_b, data_out_prime: out unsigned(15 downto 0)
     );
 end entity;
 
@@ -90,4 +90,5 @@ begin
                   data_out_6 when addr_r_b = "110" else
                   data_out_7 when addr_r_b = "111" else
                   "0000000000000000";
+    data_out_prime <= data_out_7;
 end architecture;

@@ -11,19 +11,21 @@ architecture a_bank8reg16bits_tb of bank8reg16bits_tb is
             rst, clk, wr_en: in std_logic;
             addr_r_a, addr_r_b, addr_w: in unsigned(2 downto 0);
             data_in: in unsigned(15 downto 0);
-            data_out_a, data_out_b: out unsigned(15 downto 0)
+            data_out_a, data_out_b, data_out_prime: out unsigned(15 downto 0)
         );
     end component;
     constant period_clk: time := 100 ns;
     signal finished: std_logic := '0';
     signal rst, clk, wr_en: std_logic;
     signal addr_r_a, addr_r_b, addr_w: unsigned(2 downto 0);
-    signal data_in, data_out_a, data_out_b: unsigned(15 downto 0);
+    signal data_in, data_out_a, data_out_b,
+           data_out_prime: unsigned(15 downto 0);
 begin
     uut: bank8reg16bits port map(
         rst => rst, clk => clk, wr_en => wr_en,
         addr_r_a => addr_r_a, addr_r_b => addr_r_b, addr_w => addr_w,
-        data_in => data_in, data_out_a => data_out_a, data_out_b => data_out_b
+        data_in => data_in, data_out_a => data_out_a, data_out_b => data_out_b,
+        data_out_prime => data_out_prime
     );
 
     global_rst: process

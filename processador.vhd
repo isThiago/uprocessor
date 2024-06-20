@@ -7,7 +7,7 @@ entity processador is
         rst, clk: in std_logic;
         state: out unsigned(1 downto 0);
         pc_data_out, instr_data_out, acc_data_out, bank_data_out_a,
-            bank_data_out_b, alu_res: out unsigned(15 downto 0)
+            bank_data_out_b, prime, alu_res: out unsigned(15 downto 0)
     );
 end entity;
 
@@ -49,7 +49,7 @@ architecture a_processador of processador is
             rst, clk, wr_en: in std_logic;
             addr_r_a, addr_r_b, addr_w: in unsigned(2 downto 0);
             data_in: in unsigned(15 downto 0);
-            data_out_a, data_out_b: out unsigned(15 downto 0)
+            data_out_a, data_out_b, data_out_prime: out unsigned(15 downto 0)
         );
     end component;
 
@@ -153,7 +153,8 @@ begin
         rst => rst, clk => clk, wr_en => bank_wr_en_s,
         addr_r_a => bank_addr_r_a_s, addr_r_b => bank_addr_r_b_s,
         addr_w => bank_addr_w_s, data_in => bank_data_in_s,
-        data_out_a => bank_data_out_a_s, data_out_b => bank_data_out_b_s
+        data_out_a => bank_data_out_a_s, data_out_b => bank_data_out_b_s,
+        data_out_prime => prime
     );
     top_alu: alu port map(
         a => alu_a_s, b => acc_data_out_s, op => alu_op_s, res => alu_res_s,

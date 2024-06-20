@@ -11,7 +11,7 @@ architecture a_processador_tb of processador_tb is
             rst, clk: in std_logic;
             state: out unsigned(1 downto 0);
             pc_data_out, instr_data_out, acc_data_out, bank_data_out_a,
-                bank_data_out_b, alu_res: out unsigned(15 downto 0)
+                bank_data_out_b, alu_res, prime: out unsigned(15 downto 0)
         );
     end component;
     constant period_clk: time := 100 ns;
@@ -19,13 +19,13 @@ architecture a_processador_tb of processador_tb is
     signal rst, clk: std_logic;
     signal state: unsigned(1 downto 0);
     signal pc_data_out, instr_data_out, acc_data_out, bank_data_out_a,
-           bank_data_out_b, alu_res: unsigned(15 downto 0);
+           bank_data_out_b, alu_res, prime: unsigned(15 downto 0);
 begin
     uut: processador port map(
         rst => rst, clk => clk, state => state,
         pc_data_out => pc_data_out, instr_data_out => instr_data_out,
         acc_data_out => acc_data_out, bank_data_out_a => bank_data_out_a,
-        bank_data_out_b => bank_data_out_b, alu_res => alu_res
+        bank_data_out_b => bank_data_out_b, alu_res => alu_res, prime => prime
     );
 
     global_rst: process
@@ -49,7 +49,7 @@ begin
 
     global_sim_time: process
     begin
-        wait for 200 us;
+        wait for 300 us;
         finished <= '1';
         wait;
     end process;

@@ -8,21 +8,21 @@ store:  sw   R1, (R1) # RAM[i] = i;
         cmp  A, R2    # ctz(i) == 5;
         bne  store
         ld   R1, 2    # i = 2;
+        ld   R5, 32
 sieve:  lw   R3, (R1)
         ld   A, 0
         cmp  A, R3    # RAM[i] == 0;
         beq  decept
         mov  A, R1
         mul  A, R1
-        cmp  A, R2    # ctz(i) < 5;
-        bge  decept
         mov  R4, A    # j = i*i;
+        cmp  A, R5    # j < 32;
+        bge  decept
 prime:  sw   R0, (R4) # RAM[j] = 0;
         mov  A, R4
         add  A, R1
         mov  R4, A    # j += i;
-        ctz  A, R4
-        cmp  A, R2    # ctz(i) < 5;
+        cmp  A, R5    # j < 32;
         blt  prime
 decept: mov  A, R1
         addi A, 1
@@ -30,3 +30,11 @@ decept: mov  A, R1
         ctz  A, R1
         cmp  A, R2    # ctz(i) == 5;
         bne  sieve
+        ld   R1, 2    # i = 2;
+read:   lw   R7, (R1) # out = RAM[i];
+        mov  A, R1
+        addi A, 1
+        mov  R1, A    # ++i;
+        ctz  A, R1
+        cmp  A, R2    # ctz(i) == 5;
+        bne  read
