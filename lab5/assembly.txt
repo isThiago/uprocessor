@@ -1,0 +1,24 @@
+A:      ld R3, 5
+B:      ld R4, 8
+C:      ld A, 0
+        add A, R3
+        add A, R4
+        mov R5, A
+D:      mov A, R5
+        ld R1, 1
+        sub A, R1
+        mov R5, A
+E:      j G
+F:      ld R5, 0
+        nop
+        nop
+        nop
+        nop
+        nop
+        nop
+        nop
+        nop
+G:      mov A, R5
+        mov R3, A
+H:      j C
+I:      ld R3, 0

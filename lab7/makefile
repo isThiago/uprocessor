@@ -3,6 +3,8 @@ all:
 	ghdl -e statemachine2bits
 	ghdl -a rom8x16.vhd
 	ghdl -e rom8x16
+	ghdl -a ram8x16.vhd
+	ghdl -e ram8x16
 	ghdl -a reg16bits.vhd
 	ghdl -e reg16bits
 	ghdl -a bank8reg16bits.vhd
