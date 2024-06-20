@@ -80,7 +80,9 @@ begin
     acc_data_in_sel <= "10" when opcode = "1001" and funct1 = '0' else
                        "01" when opcode = "0011" and funct1 = '0' else
                        "00";
-    alu_op <= "101" when opcode(2 downto 0) = "010" else
+    alu_op <= "110" when opcode = "0000" and funct8 = "00000011"
+                                         and funct1 = '0' else
+              "101" when opcode(2 downto 0) = "010" else
               "100" when opcode = "0000" and funct8 = "00000010"
                                          and funct1 = '1' else
               "011" when opcode = "0000" and funct8 = "00000010"

@@ -1,0 +1,28 @@
+v 4
+file . "testbenches/processador_tb.vhd" "a9a712f270e869b1ce0d7846a54469cf05c97704" "20240620222222.147":
+  entity processador_tb at 1( 0) + 0 on 27;
+  architecture a_processador_tb of processador_tb at 8( 108) + 0 on 28;
+file . "ctlu.vhd" "ed6de245b178b0fb6838c87ea41a41ea6f3f5f5c" "20240620222222.100":
+  entity ctlu at 1( 0) + 0 on 23;
+  architecture a_ctlu of ctlu at 20( 609) + 0 on 24;
+file . "bank8reg16bits.vhd" "3b8b85613f9292b9564b83d36449aa4b9051581f" "20240620222222.060":
+  entity bank8reg16bits at 1( 0) + 0 on 19;
+  architecture a_bank8reg16bits of bank8reg16bits at 14( 326) + 0 on 20;
+file . "ram8x16.vhd" "dcce436f084a610df9cf5a6f9c295680ef26cd26" "20240620222222.023":
+  entity ram8x16 at 1( 0) + 0 on 15;
+  architecture a_ram8x16 of ram8x16 at 14( 278) + 0 on 16;
+file . "statemachine2bits.vhd" "96454f7b4d71064da7c69c964e5365ed22d69065" "20240620222221.985":
+  entity statemachine2bits at 1( 0) + 0 on 11;
+  architecture a_statemachine2bits of statemachine2bits at 12( 200) + 0 on 12;
+file . "rom8x16.vhd" "07fe794e870eec6fa77f9fd1ece21343423d13ee" "20240620222222.004":
+  entity rom8x16 at 1( 0) + 0 on 13;
+  architecture a_rom8x16 of rom8x16 at 13( 228) + 0 on 14;
+file . "reg16bits.vhd" "259cafb46b5f437b76a95c2ce48fc6e6bba5bb0d" "20240620222222.042":
+  entity reg16bits at 1( 0) + 0 on 17;
+  architecture a_reg16bits of reg16bits at 13( 246) + 0 on 18;
+file . "alu.vhd" "f1c3e2a9a3424f2ee470afeae3edee167292f579" "20240620222222.081":
+  entity alu at 1( 0) + 0 on 21;
+  architecture a_alu of alu at 14( 259) + 0 on 22;
+file . "processador.vhd" "16186aa6986d181be5218c661efe2addb8d29a9f" "20240620222222.120":
+  entity processador at 1( 0) + 0 on 25;
+  architecture a_processador of processador at 14( 327) + 0 on 26;

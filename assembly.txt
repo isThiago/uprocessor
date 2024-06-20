@@ -1,0 +1,32 @@
+        ld   R1, 0    # i = 0;
+        ld   R2, 5
+store:  sw   R1, (R1) # RAM[i] = i;
+        mov  A, R1
+        addi A, 1
+        mov  R1, A    # ++i;
+        ctz  A, R1
+        cmp  A, R2    # ctz(i) == 5;
+        bne  store
+        ld   R1, 2    # i = 2;
+sieve:  lw   R3, (R1)
+        ld   A, 0
+        cmp  A, R3    # RAM[i] == 0;
+        beq  decept
+        mov  A, R1
+        mul  A, R1
+        cmp  A, R2    # ctz(i) < 5;
+        bge  decept
+        mov  R4, A    # j = i*i;
+prime:  sw   R0, (R4) # RAM[j] = 0;
+        mov  A, R4
+        add  A, R1
+        mov  R4, A    # j += i;
+        ctz  A, R4
+        cmp  A, R2    # ctz(i) < 5;
+        blt  prime
+decept: mov  A, R1
+        addi A, 1
+        mov  R1, A    # ++i;
+        ctz  A, R1
+        cmp  A, R2    # ctz(i) == 5;
+        bne  sieve

@@ -91,3 +91,8 @@ lw   Rn, (Rm): 0000 0rrr rrr0 0100 [5]
 
 sw   Rn, (Rm): 0000 1rrr rrr0 0100 [5]
 > Carrega dado lido em Rn no endereço da RAM apontado por Rm.
+
+
+ctz  A, Rn:    0000 0011 rrr0 0000 []
+> Guarda no acumulador a quantidade de bits 0 contíguos a partir do LSB do valor
+  em Rn.

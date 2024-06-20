@@ -1,20 +1,20 @@
 Estados:
 
-(0) fetch:
-> PC está pronto;
+[0] fetch:
+> valor em PC está pronto:
 > lê ROM (síncrona).
 
-(1) decode:
-> ROM está pronta;
+[1] decode:
+> saída da ROM está pronta:
 > escreve em registrador de instrução.
 
-(2) execute:
-> instrução está pronta;
-> sinais da UC estão prontos;
-> escreve em PC;
-> leituras do banco de registradores estão prontos;
-> escreve na memória;
-> leitura da memória está pronta;
-> escreve no banco de registradores;
-> resultado da ULA está pronto;
+[2] execute:
+> instrução está pronta:
+> saídas da UC estão prontas:
+> escreve em PC.
+> leituras do banco de registradores estão prontas:
+> escreve na memória.
+> leitura da memória está pronta:
+> escreve no banco de registradores.
+> resultado da ULA está pronto:
 > escreve no acumulador.
